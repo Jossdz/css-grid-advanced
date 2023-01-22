@@ -1,0 +1,84 @@
+/* mobile (mobile first) */
+
+#main {
+	/* border: 2px solid black; */
+	width: 100vw;
+	height: 50vh;
+	/* Este box sizing hace que la caja negra, no se salga de la pantalla */
+	box-sizing: border-box;
+}
+
+#carousel {
+	width: 100%;
+	/* border: 2px solid red; */
+	/* Los box sizing individuales hacen que las cajas contenidas en el borde negro no se desborden */
+	box-sizing: border-box;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	overflow-x: scroll;
+	margin-bottom: 10px;
+	gap: 10px;
+}
+
+#carousel::-webkit-scrollbar {
+	display: none;
+}
+
+#carousel > .card {
+	width: 100vw;
+	max-width: 400px;
+}
+
+#card-grid {
+	width: 100%;
+	/* border: 2px solid blue; */
+	box-sizing: border-box;
+	display: grid;
+	grid-template-areas:
+		"full full"
+		"left right";
+	gap: 10px;
+}
+
+.card {
+	aspect-ratio: 1/1;
+}
+
+.card-container > .card {
+	width: 100%;
+	background-color: gray;
+}
+
+#carousel > .card:nth-child(1) {
+	background-color: red;
+}
+#carousel > .card:nth-child(2) {
+	background-color: yellow;
+}
+#carousel > .card:nth-child(3) {
+	background-color: gray;
+}
+
+#card-grid > .card:nth-child(1) {
+	grid-area: full;
+	background-color: peru;
+}
+#card-grid > .card:nth-child(2) {
+	grid-area: left;
+	background-color: cyan;
+}
+#card-grid > .card:nth-child(3) {
+	grid-area: right;
+	background-color: crimson;
+}
+
+/* desktop */
+@media screen and (min-width: 1024px) {
+	#card-grid {
+		grid-template-areas: "full left right";
+	}
+	#carousel > .card {
+		width: auto;
+		max-width: none;
+	}
+}
